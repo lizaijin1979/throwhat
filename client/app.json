@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/me/me",
+    "pages/dataReport/dataReport",
+    "pages/dataInquery/dataInquery",
+    "pages/hatSignup/hatSignup",
+    "pages/hatInquery/hatInquery"
+  ],
+  "window":{
+    "backgroundColor":"#F6F6F6",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "翠屏“扔帽子”",
+    "navigationBarTextStyle":"black"
+  }
+}

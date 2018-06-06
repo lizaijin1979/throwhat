@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<image class='image' mode="aspectFit"  src="../images/IMG_1466.png" mode="aspectFill">  
+</image>
+<button
+    wx:if="{{canIUse}}"
+    open-type="getUserInfo"
+    bindgetuserinfo="bindGetUserInfo"
+>点击进入</button>
+<view wx:else>请升级微信版本</view>

@@ -1,0 +1,38 @@
+<!--pages/dataInquery/dataInquery.wxml-->
+<view id="datareport">  
+    <form bindsubmit="formSubmit" bindreset="formReset">   
+        <view class="section">  
+           <view class="section__title">查询项目:</view>  
+           <view class='form-group'>  
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">  
+                    <view class="picker">  
+                        <input type="hidden" disabled="true" name="item" value="{{array[index]}}"/>  
+                    </view>  
+                </picker>  
+            </view>  
+        </view> 
+		    <view class="section"> 
+            <view class="section__title">查询月份:</view>
+            <view class='form-group'>
+                <picker bindchange="bindInqueryDateChange" value="{{dateindex}}" range="{{Inquerydatearray}}">  
+                    <view class="picker">  
+                        <input type="hidden" disabled="true" name="datePicker" value="{{Inquerydatearray[dateindex]}}"/>  
+                    </view>  
+                </picker> 
+            </view>
+	      </view> 		
+        <view class="section btn-area">  
+            <button formType="submit">查询</button>              
+            <button formType="reset">清空</button> 
+        </view>  
+    </form>     
+<view  wx:for="{{record}}" wx:for-item="value">
+  <text>{{value.report_date}}  </text>
+  <text>{{value.itemName}}</text>
+  <text>:</text>
+  <text>{{value.itemNum}}</text>
+</view>  
+ 
+</view>      
+
+

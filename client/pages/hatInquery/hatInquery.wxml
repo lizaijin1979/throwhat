@@ -1,0 +1,24 @@
+<view id="datareport">  
+    <form bindsubmit="formSubmit" bindreset="formReset">   
+        <view class="section">  
+        <view class="section__title">项目名称:</view>  
+            <view class='form-group'>  
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">  
+                    <view class="picker">  
+                        <input type="hidden" disabled="true" name="item" value="{{array[index]}}"/>  
+                    </view>  
+                </picker>  
+            </view>  
+        </view>
+        <view class="section btn-area">  
+            <button formType="submit">查询</button>
+        </view>  
+    </form>  
+<view  wx:for="{{record}}" wx:for-item="value">
+  <text>{{value.itemName}}</text>
+  <text>:</text>
+  <text>{{value.itemNum}}</text>
+</view> 
+
+</view>      
+

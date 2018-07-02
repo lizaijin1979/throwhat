@@ -81,6 +81,24 @@ Page({
   formSubmit: function (e) {
     var that = this;
     var formData = e.detail.value;
+
+    if (formData.item.length == 0) {
+      wx.showModal({
+        title: '错误',
+        content: '项目名称不能为空！',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else {
+            console.log('用户点击取消')
+          }
+
+        }
+      })
+    }
+    else 
+    {
     console.log(formData);
     wx.request({
       url: config.service.hatInqueryUrl,
@@ -94,13 +112,14 @@ Page({
       },
 
       success: function (res) {
-        console.log(res.data);
+        console.log(res);
         that.setData({
-          record: res.data.record
+          record: res.data.data
         });
         that.modalTap();
       },
     })
+    }
   },
   formReset: function () {
     console.log('form发生了reset事件');

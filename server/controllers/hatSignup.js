@@ -6,8 +6,11 @@ module.exports = async ctx => {
   console.log(ctx.request.body.nickName);
  // console.log(ctx.request.body.openId);
   console.log(ctx.request.body.datetime);
+  console.log("-------------");
 
-  var id = await DB('cItemSignupManagement').where({ "itemName": ctx.request.body.item, "nickname": ctx.request.body.nickName }).select('id');
+var id = await DB('cItemSignupManagement').where({ "itemName": ctx.request.body.item, "nickname": ctx.request.body.nickName }).select('id');
+
+console.log("---------" + id);
 
   if (id == 0)
   {

@@ -87,6 +87,24 @@ Page({
     var that = this;
     var formData = e.detail.value;
 
+    if (formData.item.length == 0 || formData.datePicker.lenght == 0)
+    {
+      wx.showModal({
+        title: '错误',
+        content: '项目名称或月份不能为空！',
+        showCancel :false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else {
+            console.log('用户点击取消')
+          }
+
+        }
+      })
+    }
+    else
+    {
     console.log(formData);
     console.log(that.data.userInfo.nickName);
     //console.log(that.data.userInfo.openId);
@@ -104,14 +122,14 @@ Page({
       },
 
       success: function (res) {
-        console.log(res.data);
+        console.log(res.data.data);
         that.setData({
-          record: res.data.record})
+          record: res.data.data
+        });
         that.modalTap();
       },
-      fail: function (err) { },//请求失败
-      complete: function () { }//请求完成后执行的函数
     })
+    }
   },
   formReset: function () {
     console.log('form发生了reset事件');

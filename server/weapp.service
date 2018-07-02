@@ -1,0 +1,17 @@
+[Unit]  
+Description=weapp.service  
+After=network.target remote-fs.target nss-lookup.target  
+   
+[Service]  
+Type=forking  
+PIDFile=/run/weapp.pid  
+ExecStart=/bin/setsid /usr/bin/node /data/release/weapp/app.js  
+Restart=/bin/pkill node && /bin/setsid /usr/bin/node /data/release/weapp/app.js  
+ExecStop=/bin/pkill node  
+ExecReload=  
+PrivateTmp=true  
+RemainAfterExit=yes  
+ExecStartPre=  
+   
+[Install]  
+WantedBy=multi-user.target

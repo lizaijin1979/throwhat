@@ -1,29 +1,30 @@
 const DB = require('../tools/dbconfig')
+const query = require('../tools/query.js')
 
 module.exports = async ctx => {
   console.log(ctx.request.body.item);
   console.log(ctx.request.body.nickName);
 
-  const record = await DB('cItemSignupManagement').where({ "nickName": ctx.request.body.nickName }).select('id', 'itemName', 'itemNum', 'signup_time');
-  /*
-    if (ctx.request.body.item != '全部' && ctx.request.body.datePicker != '全部')
+    if (ctx.request.body.item != '全部')
     {
-      const record = await DB('cItemReportManagement').where({ "report_date": ctx.request.body.datePicker, "itemName": ctx.request.body.item, "nickName": ctx.request.body.nickName }).select('id', 'itemName', 'itemNum', 'report_date', 'report_time');
+      var sql = 'SELECT * FROM cItemSignupManagement WHERE nickName =' + "'" + ctx.request.body.nickName + "' " + 'AND itemName = ' + "'" + ctx.request.body.item + "';";
+
     }
-    else if (ctx.request.body.item == '全部' && ctx.request.body.datePicker != '全部')
+    else if (ctx.request.body.item == '全部')
     {
-      const record = await DB('cItemReportManagement').where({ "report_date": ctx.request.body.datePicker, "nickName": ctx.request.body.nickName }).select('id', 'itemName', 'itemNum', 'report_date', 'report_time');
-    }
-    else if (ctx.request.body.item != '全部' && ctx.request.body.datePicker == '全部')
-    {
-      const record = await DB('cItemReportManagement').where({ "itemName": ctx.request.body.item, "nickName": ctx.request.body.nickName }).select('id', 'itemName', 'itemNum', 'report_date', 'report_time');
+      var sql = 'SELECT * FROM cItemSignupManagement WHERE nickName =' + "'" + ctx.request.body.nickName + "';";
     }
     else
     {
-      const record = await DB('cItemReportManagement').where({ "nickName": ctx.request.body.nickName }).select('id', 'itemName', 'itemNum',     'report_date', 'report_time');
+      console.log('-----the input para is error');
     }
-  */
-  ctx.body = {
-    record
-  }
+
+    console.log(sql);
+
+    let rows = await query(sql);
+    let temp = JSON.parse(JSON.stringify(rows));
+    console.log(temp);
+    ctx.body = {
+      data: temp
+    }
 }

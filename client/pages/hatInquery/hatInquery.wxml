@@ -1,4 +1,5 @@
 <view id="datareport">  
+    <view class='title'>帽子查询</view>
     <form bindsubmit="formSubmit" bindreset="formReset">   
         <view class="section">  
         <view class="section__title">项目名称:</view>  

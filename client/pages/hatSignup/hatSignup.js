@@ -89,7 +89,23 @@ Page({
   formSubmit: function (e) {
     var that = this;
     var formData = e.detail.value;
-    
+    if (formData.item.length == 0 || formData.itemNum == 0) {
+      wx.showModal({
+        title: '错误',
+        content: '项目名称或者数量不能为空！',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else {
+            console.log('用户点击取消')
+          }
+
+        }
+      })
+    }
+    else 
+    {  
     wx.request({
       url: config.service.hatSignupUrl,
       data: {
@@ -109,6 +125,7 @@ Page({
         that.modalTap();
       }
     })
+    }
   },
   formReset: function () {
     console.log('form发生了reset事件');

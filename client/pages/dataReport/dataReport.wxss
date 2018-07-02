@@ -3,6 +3,25 @@
 #datareport{  
     background: #F5F5F5;  
 }  
+.title{  
+  text-align: center; 
+  font-weight: bold;
+  font-size: 30px; 
+}  
+.section{  
+  display: flex;  
+  flex-direction: row;  
+  margin: 20rpx;  
+}  
+.section view{  
+  margin-right: 20rpx;  
+}  
+.btn-area{  
+  margin: center,10px;  
+}  
+button{  
+  margin: center;  
+}
 .section__title{  
     float: left;  
     width:30%;  
@@ -10,19 +29,11 @@
 .form-group{  
     float: right;  
     width: 70%;  
-}  
-.section{  
-    clear: both;  
-    width:90%;  
-    margin: 2rem auto;  
-}  
+}   
 .input-text{  
     border: 1px solid #ddd; 
-}  
-.button{  
-    border: 1px solid #1aad19;  
-    border-radius: 2px;  
-}  
+    height:40px;
+}   
 .picker{  
     padding: 10px;  
     background-color: #FFFFFF;  

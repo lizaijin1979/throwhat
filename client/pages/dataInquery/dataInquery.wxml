@@ -1,5 +1,6 @@
 <!--pages/dataInquery/dataInquery.wxml-->
 <view id="datareport">  
+    <view class='title'>数据查询</view>
     <form bindsubmit="formSubmit" bindreset="formReset">   
         <view class="section">  
            <view class="section__title">查询项目:</view>  
@@ -22,8 +23,7 @@
             </view>
 	      </view> 		
         <view class="section btn-area">  
-            <button formType="submit">查询</button>              
-            <button formType="reset">清空</button> 
+            <button formType="submit">查询</button>  
         </view>  
     </form>     
 <view  wx:for="{{record}}" wx:for-item="value">

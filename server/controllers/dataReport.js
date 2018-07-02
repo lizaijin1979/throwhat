@@ -1,4 +1,5 @@
 const DB = require('../tools/dbconfig')
+const query = require('../tools/query.js')
 
 module.exports = async ctx => {
   console.log(ctx.request.body.item);
@@ -35,6 +36,10 @@ module.exports = async ctx => {
         report_time: ctx.request.body.datetime,
       })  
     }  
+  }
+  else
+  {
+
   }
 }
 

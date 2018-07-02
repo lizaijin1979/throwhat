@@ -2,12 +2,18 @@
 <view class="content">
   <view class="hr"></view>
   <view class="item" bindtap="dataReport">
+     <view class="img">
+      <image src = "../images/dataReport.png" style="width:20px;height:20px;"> </image>
+     </view>
      <view class="title">数据上报</view>
      <view class="detail2">
        <text> ></text>
      </view>
   </view>
   <view class="item" bindtap="dataInquery">
+     <view class="img">
+      <image src = "../images/dataInquery.png" style="width:20px;height:20px;"> </image>
+     </view>
      <view class="title">数据查询</view>
      <view class="detail2">
        <text> ></text>
@@ -15,12 +21,18 @@
   </view>
   <view class="line"></view>
   <view class="item" bindtap="hatSignup">
+     <view class="img">
+      <image src = "../images/hatSignup.png" style="width:20px;height:20px;"> </image>
+     </view>  
      <view class="title">帽子登记</view>
      <view class="detail2">
        <text> ></text>
      </view>
   </view>
   <view class="item" bindtap="hatInquery">
+     <view class="img">
+      <image src = "../images/hatInquery.png" style="width:20px;height:20px;"> </image>
+     </view>   
      <view class="title">帽子查询</view>
      <view class="detail2">
        <text> ></text>

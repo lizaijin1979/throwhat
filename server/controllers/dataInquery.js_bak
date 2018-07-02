@@ -1,5 +1,5 @@
 // const DB = require('../tools/dbconfig')
-const query = require('../tools/query.js')
+const mysqlQueryModel = require('../tools/mysqlQueryModel.js')
 const configs = require('../config')
 
 var mysql = require('mysql');
@@ -26,13 +26,49 @@ module.exports = async ctx => {
     var sql = 'SELECT * FROM cItemReportManagement WHERE nickName =' + "'" + ctx.request.body.nickName + "' "+ 'AND itemName =' + "'"+ ctx.request.body.item +"' " + 'AND report_date = ' + "'"+ ctx.request.body.datePicker +"';"; 
   }
 
-  let rows = await query(sql)
-  ctx.body = {
-    data: rows
+  console.log(sql);
+  console.log(configs.mysql.host);
+  console.log(configs.mysql.user);
+  console.log(configs.mysql.pass);
+  console.log(configs.mysql.db);
+  console.log(configs.mysql.port);
+
+  //mysqlQueryModel(configs.mysql.host, configs.mysql.port, configs.mysql.user, configs.mysql.pass, configs.mysql.db, sql).then(res => { //console.log(res) })
+
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'lizj1979',
+    port: '3306',
+    database: 'cAuth',
+  });
+
+  connection.connect();
+
+  //删
+  connection.query(sql, function (err, result) {
+    if (err) {
+      console.log('[QUERY ERROR] - ', err.message);
+      return;
+    }  
+    else
+    {
+      console.log('-------------------------');
+      let temp = JSON.parse(JSON.stringify(result));
+console.log(temp)
+ctx.response.body={data:temp}
+      console.log(result);
+
+      console.log(ctx.body);
+      console.log(ctx);
+    }
+
+  });
+
+  connection.end();
   }
+  //ctx.body = mysqlQueryModel(sql);
 
-
-  }
-
+  //console.log(ctx.body);
 
 
